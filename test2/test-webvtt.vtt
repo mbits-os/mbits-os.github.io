@@ -1,0 +1,18 @@
+WEBVTT
+
+1
+00:01.000 --> 00:46.000 line:33% position:21% size:48% align:start
+Hello!
+שלום!
+
+2
+00:01.000 --> 00:46.000 line:73% position:21% size:48% align:start
+This is the first sentence
+
+3
+00:01.000 --> 00:46.000 line:79% position:67% size:46% align:end
+This the second sentence one two three
+
+4
+00:01.000 --> 00:46.000 line:84% position:21% size:38% align:start
+This is the third sentence - it is a very long sentence so it gets cut off

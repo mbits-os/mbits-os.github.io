@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<style>
+		::cue {
+			font-size: 2em;
+		}
+
+		video::-webkit-media-text-track-display {
+			position: absolute;
+			overflow: hidden;
+			white-space: pre-wrap;
+			box-sizing: border-box;
+			font: 22px sans-serif;
+			flex: 0 0 auto;
+			background-color: green;
+			padding: 5px;
+			border-radius: 5px;
+		}
+	</style>
+  </head>
+  <body>
+    <div>
+		<video width="1280" height="960" controls>
+			<source src="../media/VfE_html5.mp4" type="video/mp4" />
+            <source src="../media/VfE.webm" type="video/webm"/>
+			<track src="test-webvtt.vtt" kind="subtitles" srclang="en" label="English" default />
+		</video>
+	</div>
+  </body>
+</html>
