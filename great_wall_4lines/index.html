@@ -41,6 +41,11 @@
             let size = document.getElementById("font-size");
             size.addEventListener('input', onsize.bind(size), false);
             size.value = 6;
+            size.update = function (val) {
+                this.value = val
+                onsize.apply(this)
+            }
+            self.sizer = size
 
             let sheet = document.styleSheets[0];
             for (let rule of sheet.rules) {
