@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<style>
+		::cue {
+			font-size: 32px;
+		}
+        #font-size {
+            width: 5em;
+            text-align: right;
+        }
+        .note {
+            font-size: 0.8em;
+            color: gray;
+        }
+	</style>
+  </head>
+  <body>
+    <pre><label for="font-size">::cue { font-size: <input id="font-size" type="number" min="6" max="250" required /> px } <span class="note">(from 6px to 250px)</span></label></pre>
+    <div>
+		<video id="video" width="1280" height="960" controls autoplay>
+			<source src="VfE_html5.mp4" type="video/mp4" />
+            <source src="VfE.webm" type="video/webm"/>
+      <track src="snapped.vtt" kind="subtitles" srclang="en" label="Snapped" />
+      <track src="snapped-mixed.vtt" kind="subtitles" srclang="en" label="Snapped [mixed]" />
+      <track src="snapped-vl.vtt" kind="subtitles" srclang="en" label="Snapped [VL]" default />
+      <track src="snapped-vr.vtt" kind="subtitles" srclang="en" label="Snapped [VR]" />
+      <track src="model.vtt" kind="subtitles" srclang="en" label="Great Wall" />
+      <track src="model-mixed.vtt" kind="subtitles" srclang="en" label="Great Wall [mixed]" />
+      <track src="model-vl.vtt" kind="subtitles" srclang="en" label="Great Wall [VL]" />
+      <track src="model-vr.vtt" kind="subtitles" srclang="en" label="Great Wall [VR]" />
+      <track src="model2.vtt" kind="subtitles" srclang="en" label="Over the Rainbow" />
+		</video>
+	</div>
+    <script>
+        function onsize() {
+            let sheet = document.styleSheets[0];
+            for (let rule of sheet.rules) {
+                if (rule.selectorText == "::cue") {
+                    rule.style.fontSize = this.value + "px";
+                    break;
+                }
+            }
+        }
+        window.onload = function() {
+            let form = document.getElementById("");
+            let size = document.getElementById("font-size");
+            size.addEventListener('input', onsize.bind(size), false);
+            size.value = 6;
+            size.update = function (val) {
+                this.value = val
+                onsize.apply(this)
+            }
+            self.sizer = size
+
+            let sheet = document.styleSheets[0];
+            for (let rule of sheet.rules) {
+                if (rule.selectorText == "::cue") {
+                    size.value = parseFloat(rule.style.fontSize);
+                    break;
+                }
+            }
+        }
+    </script>
+  </body>
+</html>
