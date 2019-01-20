@@ -1,0 +1,31 @@
+WEBVTT
+
+00:01.000 --> 01:00.000 position:20% align:start line:3
+<c.white><c.mono_sans>3rd line from top [H]</c.mono_sans></c.white>
+
+00:01.000 --> 01:00.000 position:20% align:start
+<c.white><c.mono_sans>Lowest line (edge) [H]</c.mono_sans></c.white>
+
+00:01.000 --> 01:00.000 position:20% align:start
+<c.white><c.mono_sans>Middle line [H]</c.mono_sans></c.white>
+
+00:01.000 --> 01:00.000 position:20% align:start
+<c.white><c.mono_sans>Highest line [H]</c.mono_sans></c.white>
+
+00:01.000 --> 01:00.000 position:20% align:start line:3 vertical:lr
+<c.white><c.mono_sans>3rd line from left [LR]</c.mono_sans></c.white>
+
+00:01.000 --> 01:00.000 position:10% align:start vertical:lr
+<c.white><c.mono_sans>Right line (edge) [LR]</c.mono_sans></c.white>
+
+00:01.000 --> 01:00.000 position:10% align:start vertical:lr
+<c.white><c.mono_sans>Left line [LR]</c.mono_sans></c.white>
+
+00:01.000 --> 01:00.000 position:20% align:start line:3 vertical:rl
+<c.white><c.mono_sans>3rd line from right [RL]</c.mono_sans></c.white>
+
+00:01.000 --> 01:00.000 position:10% align:start vertical:rl
+<c.white><c.mono_sans>Left line (edge) [RL]</c.mono_sans></c.white>
+
+00:01.000 --> 01:00.000 position:10% align:start vertical:rl
+<c.white><c.mono_sans>Right line [RL]</c.mono_sans></c.white>

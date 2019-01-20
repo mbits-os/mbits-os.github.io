@@ -1,0 +1,13 @@
+WEBVTT
+
+00:01.000 --> 01:00.000 position:10% align:start line:3
+<c.white><c.mono_sans>3rd line from top</c.mono_sans></c.white>
+
+00:01.000 --> 01:00.000 position:10% align:start line:73.96%
+<c.white><c.mono_sans>Highest line</c.mono_sans></c.white>
+
+00:01.000 --> 01:00.000 position:10% align:start line:79.29%
+<c.white><c.mono_sans>Middle line</c.mono_sans></c.white>
+
+00:01.000 --> 01:00.000 position:10% align:start line:84.62%
+<c.white><c.mono_sans>Lowest line (edge)</c.mono_sans></c.white>
