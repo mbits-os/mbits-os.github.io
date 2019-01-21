@@ -22,7 +22,7 @@
   </head>
   <body>
     <div>
-    <video id="video" width="1280" height="720">
+    <video id="video" width="1280" height="720" controls>
       <source src="../media/VfE_html5.mp4" type="video/mp4" />
       <source src="../media/VfE.webm" type="video/webm" />
       <track src="snapped.vtt" kind="subtitles" srclang="en" label="Snapped" />
@@ -40,6 +40,8 @@
     const v = document.getElementsByTagName("video")[0]
     let oncanplay = () => {
       v.removeEventListener('canplay', oncanplay)
+      if (navigator.vendor == 'Google Inc.')
+        v.controls = false
       v.currentTime = 31
       v.pause()
     }
