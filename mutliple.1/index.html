@@ -24,5 +24,12 @@
       <track src="percent-rl.vtt" kind="subtitles" srclang="en" label="Percent [RL]" />
     </video>
   </div>
+  <script>
+    window.onload = () => {
+      window.v = document.getElementsByTagName("video")[0]
+      v.pause()
+      v.currentTime = 31
+    }
+  </script>
   </body>
 </html>
