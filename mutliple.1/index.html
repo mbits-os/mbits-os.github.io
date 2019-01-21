@@ -7,11 +7,22 @@
       ::cue {
         font-size: 40px;
       }
+      select {
+        margin: 3rem;
+        width: calc(1280px - 6rem);
+        padding: .2rem;
+        font-size: 1.5rem;
+        border: 1px solid #ccc;
+        background: #ddd;
+        height: 2.5rem;
+        -webkit-appearance: none;
+        appearance: none;
+      }
     </style>
   </head>
   <body>
     <div>
-    <video id="video" width="1280" height="720" controls>
+    <video id="video" width="1280" height="720">
       <source src="../media/VfE_html5.mp4" type="video/mp4" />
       <source src="../media/VfE.webm" type="video/webm" />
       <track src="snapped.vtt" kind="subtitles" srclang="en" label="Snapped" />
@@ -19,17 +30,44 @@
       <track src="snapped-lr.vtt" kind="subtitles" srclang="en" label="Snapped [LR]" />
       <track src="snapped-rl.vtt" kind="subtitles" srclang="en" label="Snapped [RL]" />
       <track src="percent.vtt" kind="subtitles" srclang="en" label="Percent" />
+      <track src="percent-reversed.vtt" kind="subtitles" srclang="en" label="Percent [reveresed]" />
       <track src="percent-mixed.vtt" kind="subtitles" srclang="en" label="Percent [mixed]" />
       <track src="percent-lr.vtt" kind="subtitles" srclang="en" label="Percent [LR]" />
       <track src="percent-rl.vtt" kind="subtitles" srclang="en" label="Percent [RL]" />
     </video>
   </div>
   <script>
-    window.onload = () => {
-      window.v = document.getElementsByTagName("video")[0]
-      v.pause()
+    const v = document.getElementsByTagName("video")[0]
+    let oncanplay = () => {
+      v.removeEventListener('canplay', oncanplay)
       v.currentTime = 31
+      v.pause()
     }
+    v.addEventListener('canplay', oncanplay)
+
+    window.addEventListener('load', () => {
+      console.log('window.onload')
+      let tracks = v.textTracks
+      let select = document.createElement('select')
+      for (let track_id = 0; track_id < tracks.length; ++track_id) {
+        let track = tracks[track_id]
+        console.log(track_id, track.label, track.mode)
+        let opt = document.createElement('option')
+        opt.innerText = track.label
+        opt.setAttribute('value', track_id)
+        if (track.mode == "showing")
+          opt.setAttribute('selected', 'selected')
+        select.append(opt)
+      }
+      select.addEventListener('change', () => {
+        const new_track = select.value
+        for (let track_id = 0; track_id < tracks.length; ++track_id) {
+          const track = tracks[track_id]
+          track.mode = track_id == new_track ? "showing" : "disabled"
+        }
+      })
+      document.body.append(select)
+    })
   </script>
   </body>
 </html>

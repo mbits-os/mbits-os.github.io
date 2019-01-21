@@ -1,13 +1,13 @@
 WEBVTT
 
 00:01.000 --> 01:00.000 position:10% align:start line:3 vertical:lr
-<c.white><c.mono_sans>3rd line from right</c.mono_sans></c.white>
+<c.white><c.mono_sans>3rd line from left</c.mono_sans></c.white>
 
-00:01.000 --> 01:00.000 position:10% align:start line:73.96% vertical:lr
+00:01.000 --> 01:00.000 position:10% align:start line:94.82% vertical:lr
 <c.white><c.mono_sans>Leftmost line</c.mono_sans></c.white>
 
-00:01.000 --> 01:00.000 position:10% align:start line:79.29% vertical:lr
+00:01.000 --> 01:00.000 position:10% align:start line:96.15% vertical:lr
 <c.white><c.mono_sans>Middle line</c.mono_sans></c.white>
 
-00:01.000 --> 01:00.000 position:10% align:start line:84.62% vertical:lr
+00:01.000 --> 01:00.000 position:10% align:start line:97.94% vertical:lr
 <c.white><c.mono_sans>Rightmost line (edge)</c.mono_sans></c.white>
