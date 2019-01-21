@@ -11,7 +11,7 @@
   </head>
   <body>
     <div>
-    <video id="video" width="1280" height="720">
+    <video id="video" width="1280" height="720" controls>
       <source src="../media/VfE_html5.mp4" type="video/mp4" />
       <source src="../media/VfE.webm" type="video/webm" />
       <track src="snapped.vtt" kind="subtitles" srclang="en" label="Snapped" />
@@ -24,13 +24,5 @@
       <track src="percent-rl.vtt" kind="subtitles" srclang="en" label="Percent [RL]" />
     </video>
   </div>
-  <script>
-    window.onload = () => {
-      window.v = document.getElementsByTagName("video")[0]
-      v.pause()
-      v.currentTime = 31
-      console.log(v.textTracks.map((t, i)=>{ return {label: t.label, id:i}}))
-    }
-  </script>
   </body>
 </html>
