@@ -24,8 +24,8 @@ WEBVTT
 00:01.000 --> 01:00.000 position:10% align:start line:3 vertical:rl
 <c.white><c.mono_sans>3rd line from right [RL]</c.mono_sans></c.white>
 
-00:01.000 --> 01:00.000 position:10% align:start line:1.35% vertical:rl
+00:01.000 --> 01:00.000 position:10% align:start line:96.15% vertical:rl
 <c.white><c.mono_sans>Right line [RL]</c.mono_sans></c.white>
 
-00:01.000 --> 01:00.000 position:10% align:start line:0.01% vertical:rl
+00:01.000 --> 01:00.000 position:10% align:start line:97.94% vertical:rl
 <c.white><c.mono_sans>Left line (edge) [RL]</c.mono_sans></c.white>

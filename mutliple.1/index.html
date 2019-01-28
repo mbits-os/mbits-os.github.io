@@ -9,6 +9,7 @@
       }
       select {
         margin: 3rem;
+        margin-bottom: 0.1rem;
         width: calc(1280px - 6rem);
         padding: .2rem;
         font-size: 1.5rem;
@@ -17,6 +18,30 @@
         height: 2.5rem;
         -webkit-appearance: none;
         appearance: none;
+      }
+      select + div {
+        margin: 3rem;
+        margin-top: 0.1rem;
+        width: calc(1280px - 6rem);
+        font-size: 1.5rem;
+      }
+      .note {
+          font-size: 0.8em;
+          color: gray;
+      }
+      #margin-size {
+        padding: .2rem;
+        font-size: 1.5rem;
+        border: 1px solid #ccc;
+        background: #ddd;
+        height: 2.5rem;
+        text-align: right;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+      #margin-size:disabled {
+        border: 1px solid #fcc;
+        background: #fdd;
       }
     </style>
   </head>
@@ -36,21 +61,28 @@
       <track src="percent-rl.vtt" kind="subtitles" srclang="en" label="Percent [RL]" />
     </video>
   </div>
+  <select></select>
+  <div><label for="font-size">Text track margin size: <input id="margin-size" type="number" min="0" max="100" step="0.01" required />% <span class="note">(from 0% to 100%)</span></label></div>
   <script>
     const v = document.getElementsByTagName("video")[0]
     let oncanplay = () => {
       v.removeEventListener('canplay', oncanplay)
-      if (navigator.vendor == 'Google Inc.')
-        v.controls = false
       v.currentTime = 31
       v.pause()
     }
     v.addEventListener('canplay', oncanplay)
+    if (navigator.vendor == 'Google Inc.')
+      v.controls = false
+
+    let onsize = (input) => {
+      console.log(typeof input.value, input.value)
+      VTTCue.trackMargin = input.value
+    }
 
     window.addEventListener('load', () => {
       console.log('window.onload')
       let tracks = v.textTracks
-      let select = document.createElement('select')
+      let select = document.getElementsByTagName('select')[0]
       for (let track_id = 0; track_id < tracks.length; ++track_id) {
         let track = tracks[track_id]
         console.log(track_id, track.label, track.mode)
@@ -68,7 +100,14 @@
           track.mode = track_id == new_track ? "showing" : "disabled"
         }
       })
-      document.body.append(select)
+
+      let size = document.getElementById("margin-size");
+      if (VTTCue.hasOwnProperty('trackMargin')) {
+        size.addEventListener('input', () => onsize(size), false);
+        size.value = VTTCue.trackMargin;
+      } else {
+        size.disabled = true;
+      }
     })
   </script>
   </body>
